@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "tasks/input"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "tasks#input"
+  root 'task_manages#home'
+  get '/task_list', to: 'task_manages#task_list'
+  get '/new_task', to: 'task_manages#new_task'
 end
