@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>タスク一覧 | Task Manage</title>
+  </head>
+  <body>
+    <header>
+      <p>タスク一覧</p>
+      <ul>
+        <li><%= link_to "Home", root_url%></li>
+        <li><%= link_to "タスク追加", new_path%></li>
+      </ul>
+    </header>
+    <div>
+    <h1>タスク一覧</h1>
+      <% @task.each do |task| %>
+        <ul>
+          <li><%= task.content %></li>
+        </ul>
+      <% end %>
+    </div>
+  </body>
+</html>

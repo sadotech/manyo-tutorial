@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>タスク追加 | Task Manage</title>
+  </head>
+  <body>  
+    <header>
+      <p>タスク追加</p>
+      <ul>
+        <li><%= link_to "Home", root_url %></li>
+        <li><%= link_to "タスク一覧", list_path %></li>
+      </ul>
+    </header>
+    <div>
+    <h1>タスク追加</h1>
+      <%= form_for @task do |f| %>
+        <%= f.text_field :content %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </body>
+</html>
