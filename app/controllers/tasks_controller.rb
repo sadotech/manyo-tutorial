@@ -1,18 +1,28 @@
 class TasksController < ApplicationController
+  #binding.pry
+  #@task = Task.find(params[:id])
   def new
     @task = Task.new
   end
 
-  def list
-    @task = Task.all
+  def index
+    @tasks = Task.all
   end
 
   def show
     @task = Task.find(params[:id])
   end
 
+  def destroy
+    #binding.pry
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to index_path
+  end
+
+  helper_method :destroy
+
   def create
-    binding.pry
     @task = Task.new(task_params)
     if @task.save
       redirect_to @task
