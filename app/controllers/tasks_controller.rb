@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
-  #binding.pry
-  #@task = Task.find(params[:id])
+
   def new
     @task = Task.new
   end
@@ -14,16 +13,14 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    #binding.pry
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to index_path
   end
 
-  helper_method :destroy
-
   def create
     @task = Task.new(task_params)
+    #binding.pry
     if @task.save
       redirect_to @task
     else
@@ -34,7 +31,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:content)
+      params.require(:task).permit(:content, :status)
     end
 
 end

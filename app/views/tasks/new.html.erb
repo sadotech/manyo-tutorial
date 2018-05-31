@@ -14,8 +14,9 @@
     <div>
     <h1>タスク追加</h1>
       <%= form_for @task do |f| %>
-        <%= f.text_field :content %>
-        <%= f.submit %>
+        <p><%= f.text_field :content %></p>
+        <p><%= f.select :status, [["未着手", "未着手"], ["着手", "着手"], ["完了", "完了"]] %></p>
+        <p><%= f.submit %></p>
       <% end %>
     </div>
   </body>

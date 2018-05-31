@@ -14,8 +14,9 @@
     </header>
     <div>
       <h1>タスク詳細</h1>
-      <p>タスクid：<%= @task.id %></p>
-      <p>タスク詳細：<%= @task.content %></p>
+      <p>id：<%= @task.id %></p>
+      <p>詳細：<%= @task.content %></p>
+      <p>ステータス：<%= @task.status %></p>
       <p><%= link_to "削除", @task, method: :delete %></p>
     </div>
   </body>
