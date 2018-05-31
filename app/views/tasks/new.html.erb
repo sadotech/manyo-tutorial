@@ -14,9 +14,10 @@
     <div>
     <h1>タスク追加</h1>
       <%= form_for @task do |f| %>
-        <p><%= f.text_field :content %></p>
-        <p><%= f.select :status, [["未着手", "未着手"], ["着手", "着手"], ["完了", "完了"]] %></p>
-        <p><%= f.submit %></p>
+        <p>内容：<%= f.text_field :content %></p>
+        <p>ステータス：<%= f.select :status, [["未着手", "未着手"], ["着手", "着手"], ["完了", "完了"]] %></p>
+        <p>期限：<%= f.datetime_select :limit_date %></p>
+        <p><%= f.submit "登録" %></p>
       <% end %>
     </div>
   </body>
