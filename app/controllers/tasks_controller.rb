@@ -8,6 +8,13 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  # 現状検索結果画面でブラウザをリロードすると死にます
+  def search
+    #binding.pry
+    search_word = "content like '%" + params[:task][:content] + "%'"
+    @tasks = Task.where(search_word)
+  end
+
   def show
     @task = Task.find(params[:id])
   end
@@ -15,6 +22,13 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
     #binding.pry    
+  end
+
+ 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to index_path
   end
 
   def update
@@ -43,12 +57,6 @@ class TasksController < ApplicationController
     else
       render 'update'
     end    
-  end
-
-  def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to index_path
   end
 
   def create
