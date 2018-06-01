@@ -13,6 +13,36 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
+    #binding.pry    
+  end
+
+  def update
+    task = Task.find(params[:id])
+    date = {
+      year:   task_params["limit_date(1i)"].to_i,
+      month:  task_params["limit_date(2i)"].to_i,
+      day:    task_params["limit_date(3i)"].to_i,
+      hour:   task_params["limit_date(4i)"].to_i,
+      minute: task_params["limit_date(5i)"].to_i
+      }
+    task.update(
+      content:    task_params[:content],
+      status:     task_params[:status],
+      limit_date: DateTime.new(
+        date[:year],
+        date[:month],
+        date[:day],
+        date[:hour],
+        date[:minute]
+        )
+      )
+      #binding.pry    
+    if task.save
+      redirect_to task
+    else
+      render 'update'
+    end    
   end
 
   def destroy
@@ -29,7 +59,7 @@ class TasksController < ApplicationController
       hour:   task_params["limit_date(4i)"].to_i,
       minute: task_params["limit_date(5i)"].to_i
       }
-    @task = Task.new(
+    task = Task.new(
       content:    task_params[:content],
       status:     task_params[:status],
       limit_date: DateTime.new(
@@ -42,8 +72,8 @@ class TasksController < ApplicationController
       )
     #binding.pry
     
-    if @task.save
-      redirect_to @task
+    if task.save
+      redirect_to task
     else
       render 'new'
     end

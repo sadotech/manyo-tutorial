@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>タスク編集 | Task Manage</title>
+  </head>
+  <body>
+    <header>
+      <% provide(:title, 'タスク編集') %>      
+    </header>
+    <div>
+      <h1>タスク編集</h1>
+      <h3>id：<%= @task.id %></h3>
+      <h3>内容：<%= @task.content %></h3>
+      <%= form_for @task do |f| %>
+        <h3>ステータス：<%= f.select :status, [["未着手", "未着手"], ["着手", "着手"], ["完了", "完了"]] %></h3>
+        <h3>期限：<%= f.datetime_select :limit_date %></h3>
+        <h3><%= f.submit "編集" %></h3>
+      <% end %>      
+    </div>
+  </body>
+</html>

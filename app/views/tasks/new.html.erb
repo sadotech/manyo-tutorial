@@ -10,10 +10,10 @@
     <div>
     <h1>タスク追加</h1>
       <%= form_for @task do |f| %>
-        <p>内容：<%= f.text_field :content %></p>
-        <p>ステータス：<%= f.select :status, [["未着手", "未着手"], ["着手", "着手"], ["完了", "完了"]] %></p>
-        <p>期限：<%= f.datetime_select :limit_date %></p>
-        <p><%= f.submit "登録" %></p>
+        <h3>内容：<%= f.text_field :content %></h3>
+        <h3>ステータス：<%= f.select :status, [["未着手", "未着手"], ["着手", "着手"], ["完了", "完了"]] %></h3>
+        <h3>期限：<%= f.datetime_select :limit_date %></h3>
+        <h3><%= f.submit "登録" %></h3>
       <% end %>
     </div>
   </body>
