@@ -5,11 +5,7 @@
   </head>
   <body>  
     <header>
-      <p>タスク追加</p>
-      <ul>
-        <li><%= link_to "Home", root_url %></li>
-        <li><%= link_to "タスク一覧", index_path %></li>
-      </ul>
+      <% provide(:title, 'タスク追加') %>
     </header>
     <div>
     <h1>タスク追加</h1>

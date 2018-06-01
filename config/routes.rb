@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/new', to: 'tasks#new'
   resources :tasks
   delete '/destroy', to: 'tasks#destroy'
+  get '/edit', to: 'tasks#edit'
 end
