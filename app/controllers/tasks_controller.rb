@@ -23,7 +23,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     #binding.pry    
   end
-
  
   def destroy
     @task = Task.find(params[:id])
